@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Make each group take full width, stacked vertically */
+.groups-container {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 25px;
+  align-items: center;
+}
+
+.group {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 90%; /* take most of the screen width */
+  max-width: 600px; /* limit width for readability */
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+}
+
+.match select {
+  padding: 4px 6px;
+}
+
+.points-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.points-table th, .points-table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+.points-table th {
+  background-color: #007BFF;
+  color: white;
+}
+
+#super8, #semiFinals, #final {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
