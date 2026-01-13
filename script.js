@@ -1,4 +1,3 @@
-// ===================== GROUPS & TEAMS =====================
 const groups = {
   A: ["Pakistan","Netherlands","India","United States Of America","Namibia"],
   B: ["Australia","Sri Lanka","Zimbabwe","Ireland","Oman"],
@@ -6,7 +5,6 @@ const groups = {
   D: ["South Africa","New Zealand","Afghanistan","Canada","United Arab Emirates"]
 };
 
-// ===================== FIXTURES =====================
 const fixtures = {
   A: [
     {team1:"Pakistan",team2:"Netherlands"},
@@ -58,7 +56,6 @@ const fixtures = {
   ]
 };
 
-// ===================== POINTS TABLE =====================
 const points = {};
 Object.keys(groups).forEach(g=>{
   points[g]={};
@@ -67,7 +64,7 @@ Object.keys(groups).forEach(g=>{
   });
 });
 
-// Render points table
+// render points table
 function renderPointsTable(group){
   const table = document.getElementById(`points${group}`);
   table.innerHTML = "<tr><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th></tr>";
@@ -79,7 +76,7 @@ function renderPointsTable(group){
   });
 }
 
-// Recalculate points based on user selection
+// recalculate 
 function recalcGroupPoints(group){
   Object.keys(points[group]).forEach(t=>{
     points[group][t]={played:0,won:0,lost:0,points:0};
@@ -108,7 +105,7 @@ function recalcGroupPoints(group){
   renderPointsTable(group);
 }
 
-// Render matches for a group
+//  matches 
 function renderGroupMatches(group){
   const container=document.getElementById(`group${group}-matches`);
   container.innerHTML="";
@@ -133,7 +130,6 @@ function renderGroupMatches(group){
   });
 }
 
-// Get top 2 in a group
 function getTop2(group){
   const sorted = Object.keys(points[group]).sort((a,b)=>{
     return points[group][b].points - points[group][a].points;
@@ -141,7 +137,7 @@ function getTop2(group){
   return sorted.slice(0,2);
 }
 
-// ===================== SUPER 8 =====================
+// S8
 let super8Matches = [];
 function updateSuper8(){
   const topA = getTop2("A");
@@ -181,7 +177,7 @@ function updateSuper8(){
   });
 }
 
-// ===================== SEMI-FINALS =====================
+// sf
 let semiFinals = [];
 function updateSemiFinals(){
   const winners = [];
@@ -218,7 +214,7 @@ function updateSemiFinals(){
   });
 }
 
-// ===================== FINAL & CHAMPION =====================
+// finals
 let finalMatch = {team1:null, team2:null, winner:null};
 function updateFinal(){
   semiFinals.forEach((m)=>{
@@ -252,7 +248,7 @@ function updateFinal(){
   });
 }
 
-// ===================== EXIT POLL =====================
+// %
 function showExitPoll(winner) {
   const pollWeights = {
     "India": 10,"Australia": 9,"England": 8,"New Zealand": 7,
@@ -274,12 +270,10 @@ function showExitPoll(winner) {
   pollDiv.style.fontWeight = "bold";
   pollDiv.innerText = pollMsg;
 
-  // Append to champion div
   document.getElementById("champion").appendChild(pollDiv);
 }
-
-// ===================== INITIAL RENDER =====================
 ["A","B","C","D"].forEach(g=>{
   renderGroupMatches(g);
   recalcGroupPoints(g);
 });
+
