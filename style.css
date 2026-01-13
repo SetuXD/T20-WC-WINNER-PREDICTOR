@@ -10,10 +10,9 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Make each group take full width, stacked vertically */
 .groups-container {
   display: flex;
-  flex-direction: column; /* stack vertically */
+  flex-direction: column; 
   gap: 25px;
   align-items: center;
 }
@@ -23,8 +22,8 @@ h1 {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  width: 90%; /* take most of the screen width */
-  max-width: 600px; /* limit width for readability */
+  width: 90%; 
+  max-width: 600px; 
 }
 
 .match {
@@ -64,3 +63,4 @@ h1 {
   border-radius: 8px;
   margin-top: 15px;
 }
+
